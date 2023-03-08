@@ -12,7 +12,7 @@ body {
   margin: 0;
   font-family: Helvetica, sans-serif;
   font-size: 1rem;
-  background-color: #000;
+  background-color: ${(props) => props.theme.colors.secondary};
   min-height: 100vh;
 }
 
