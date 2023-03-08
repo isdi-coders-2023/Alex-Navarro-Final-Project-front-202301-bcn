@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import "@fontsource/karla";
 
 const GlobalStyles = createGlobalStyle`
 
@@ -10,9 +11,9 @@ const GlobalStyles = createGlobalStyle`
 
 body {
   margin: 0;
-  font-family: Helvetica, sans-serif;
+  font-family: ${(props) => props.theme.fonts.primary};
   font-size: 1rem;
-  background-color: ${(props) => props.theme.colors.secondary};
+  background-color: ${(props) => props.theme.colors.black};
   min-height: 100vh;
 }
 
@@ -37,7 +38,6 @@ button, input {
 }
   
 button {
-  background-color: transparent;
   cursor: pointer;
 }
 

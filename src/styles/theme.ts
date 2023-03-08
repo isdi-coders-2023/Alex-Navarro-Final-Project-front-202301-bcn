@@ -6,8 +6,10 @@ const theme: DefaultTheme = {
     secondary: "Karla",
   },
   colors: {
-    primary: "#f51e4d",
-    secondary: "#000",
+    app: "#f51e4d",
+    black: "#000",
+    white: "#fff",
+    grey: "#a0a0a0",
   },
 };
 
