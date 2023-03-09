@@ -1,4 +1,4 @@
-import renderWithProviders from "../../utils/testsUtils";
+import renderWithProviders from "../../utils/testUtils/renderWithProviders";
 import LoginForm from "./LoginForm";
 import { act, screen } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";

@@ -1,5 +1,5 @@
 import { renderHook } from "@testing-library/react";
-import Wrapper from "../../mocks/Wrapper";
+import Wrapper from "../../utils/Wrapper";
 import { store } from "../../store/store";
 import { CustomTokenPayload, UserCredentials } from "./types";
 import useUser from "./useUser";
