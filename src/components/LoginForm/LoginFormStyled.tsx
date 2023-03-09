@@ -33,7 +33,7 @@ const LoginFormStyled = styled.div`
       border: solid 2px ${(props) => props.theme.colors.app};
       padding: 0.8rem;
       background-color: ${(props) => props.theme.colors.black};
-      color: ${(props) => props.theme.colors.black};
+      color: ${(props) => props.theme.colors.white};
 
       ::placeholder {
         font-family: ${(props) => props.theme.fonts.secondary};

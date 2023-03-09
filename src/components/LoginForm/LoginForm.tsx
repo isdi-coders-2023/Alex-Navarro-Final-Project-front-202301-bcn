@@ -1,6 +1,22 @@
+import { useState } from "react";
+import useUser from "../../hooks/useUser/useUser";
+import Button from "../Button/Button";
 import LoginFormStyled from "./LoginFormStyled";
 
 const LoginForm = (): JSX.Element => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { loginUser } = useUser();
+
+  const handleSubmit = async (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    await loginUser({
+      email,
+      password,
+    });
+  };
+
   return (
     <>
       <LoginFormStyled>
@@ -15,7 +31,7 @@ const LoginForm = (): JSX.Element => {
           autoComplete="off"
           className="form"
           aria-label="Login user"
-          onSubmit={() => {}}
+          onSubmit={handleSubmit}
         >
           <label htmlFor="email" className="form__label">
             Email
@@ -24,6 +40,7 @@ const LoginForm = (): JSX.Element => {
               type="email"
               placeholder="Introduce your email"
               className="form__input"
+              onChange={(event) => setEmail(event.target.value)}
             />
           </label>
           <label htmlFor="password" className="form__label">
@@ -35,8 +52,10 @@ const LoginForm = (): JSX.Element => {
               required
               minLength={8}
               className="form__input"
+              onChange={(event) => setPassword(event.target.value)}
             />
           </label>
+          <Button className="form-button" isDisabled={false} text={"Log in"} />
         </form>
       </LoginFormStyled>
     </>
