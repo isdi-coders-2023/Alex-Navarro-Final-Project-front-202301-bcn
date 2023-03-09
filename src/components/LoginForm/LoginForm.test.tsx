@@ -5,8 +5,11 @@ import { ThemeProvider } from "styled-components";
 import theme from "../../styles/theme";
 import userEvent from "@testing-library/user-event";
 import { UserCredentials } from "../../hooks/useUser/types";
+import { setupStore } from "../../store/store";
 
 const mockLoginUser = jest.fn();
+
+setupStore();
 
 jest.mock("../../hooks/useUser/useUser", () => () => ({
   loginUser: mockLoginUser,
