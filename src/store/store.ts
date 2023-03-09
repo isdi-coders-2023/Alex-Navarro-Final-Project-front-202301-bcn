@@ -1,4 +1,4 @@
-import { userReducer } from "./features/userSlice/userSlice";
+import { userReducer } from "./features/users/userSlice";
 
 import {
   configureStore,

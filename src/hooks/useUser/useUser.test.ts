@@ -4,8 +4,8 @@ import { store } from "../../store/store";
 import { CustomTokenPayload, UserCredentials } from "./types";
 import useUser from "./useUser";
 import decodeToken from "jwt-decode";
-import { User } from "../../store/features/userSlice/types";
-import { loginUserActionCreator } from "../../store/features/userSlice/userSlice";
+import { User } from "../../store/features/users/types";
+import { loginUserActionCreator } from "../../store/features/users/userSlice";
 
 jest.mock("jwt-decode", () => jest.fn());
 
