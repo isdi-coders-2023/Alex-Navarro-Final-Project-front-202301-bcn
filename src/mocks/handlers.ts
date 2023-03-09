@@ -1,8 +1,8 @@
 import { rest } from "msw";
 
 const routes = {
-  users: "users/",
-  login: "login/",
+  users: "/users",
+  login: "/login",
 };
 
 const apiUrl = process.env.REACT_APP_URL_API!;

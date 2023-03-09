@@ -12,11 +12,9 @@ const useUser = (): UseUserStructure => {
   const dispatch = useAppDispatch();
 
   const apiUrl = process.env.REACT_APP_URL_API;
-  const usersEndpoint = "users/";
-  const loginEndpoint = "login/";
 
   const loginUser = async (userCredentials: UserCredentials) => {
-    const response = await fetch(`${apiUrl}${usersEndpoint}${loginEndpoint}`, {
+    const response = await fetch(`${apiUrl}/users/login`, {
       method: "POST",
       body: JSON.stringify(userCredentials),
       headers: { "Content-Type": "application/json" },

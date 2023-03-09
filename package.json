@@ -62,10 +62,7 @@
       "src/**/*.tsx",
       "!src/index.tsx",
       "!src/react-app-env.d.ts",
-      "!src/setupTests.ts",
-      "!src/App.tsx",
-      "!src/store/hooks.ts",
-      "!src/store/index.ts"
+      "!src/setupTests.ts"
     ]
   }
 }
