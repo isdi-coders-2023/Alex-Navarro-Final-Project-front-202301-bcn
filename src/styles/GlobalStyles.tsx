@@ -11,9 +11,9 @@ const GlobalStyles = createGlobalStyle`
 
 body {
   margin: 0;
-  font-family: ${(props) => props.theme.fonts.primary};
+  font-family: "Helvetica";
   font-size: 1rem;
-  background-color: ${(props) => props.theme.colors.black};
+  background-color: black;
   min-height: 100vh;
 }
 
