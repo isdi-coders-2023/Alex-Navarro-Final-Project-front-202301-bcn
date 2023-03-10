@@ -2,7 +2,7 @@ import { PreloadedState } from "@reduxjs/toolkit";
 import { PropsWithChildren } from "react";
 import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
-import { RootState, setupStore, store } from "../store/store";
+import { RootState, setupStore, store } from "../../store/store";
 
 export const renderWithProviders = (
   ui: React.ReactElement,

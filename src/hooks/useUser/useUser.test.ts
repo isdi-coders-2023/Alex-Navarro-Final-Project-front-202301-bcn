@@ -1,11 +1,13 @@
-import { renderHook } from "@testing-library/react";
-import Wrapper from "../../mocks/Wrapper";
+import { act, renderHook } from "@testing-library/react";
+import Wrapper from "../../utils/Wrapper";
 import { store } from "../../store/store";
 import { CustomTokenPayload, UserCredentials } from "./types";
 import useUser from "./useUser";
 import decodeToken from "jwt-decode";
 import { User } from "../../store/features/users/types";
 import { loginUserActionCreator } from "../../store/features/users/userSlice";
+import { errorHandlers } from "../../mocks/handlers";
+import { server } from "../../mocks/server";
 
 jest.mock("jwt-decode", () => jest.fn());
 
@@ -26,6 +28,13 @@ const mockTokenPayload: CustomTokenPayload = {
 };
 
 const mockToken = "sda123-asd1!23.da?34";
+
+const mockErrorToast = jest.fn();
+
+jest.mock("../../components/modals/modals", () => ({
+  ...jest.requireActual("../../components/modals/modals"),
+  errorToast: () => mockErrorToast("Wrong credentials"),
+}));
 
 describe("Given a useUser custom hook", () => {
   describe("When the loginUser function is invoked to login the user with the email 'alex@gmail.com' and the password 'alex1234'", () => {
@@ -49,6 +58,31 @@ describe("Given a useUser custom hook", () => {
       await loginUser(mockUserCredentials);
 
       expect(spy).toHaveBeenCalledWith(loginUserActionCreator(mockUserLogin));
+    });
+  });
+
+  describe("When loginUser function is invoked with email 'alex@gmail.com' and password 'alex4321'", () => {
+    test("Then it should call the errorToast function", async () => {
+      server.use(...errorHandlers);
+      const {
+        result: {
+          current: { loginUser },
+        },
+      } = renderHook(() => useUser(), {
+        wrapper: Wrapper,
+      });
+
+      (decodeToken as jest.MockedFunction<typeof decodeToken>).mockReturnValue(
+        mockTokenPayload
+      );
+
+      const userCredentials: UserCredentials = {
+        email: "alex@gmail.com",
+        password: "alex4321",
+      };
+
+      await act(async () => loginUser(userCredentials));
+      expect(mockErrorToast).toHaveBeenCalledWith("Wrong credentials");
     });
   });
 });
