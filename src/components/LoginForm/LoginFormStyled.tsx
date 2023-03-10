@@ -40,6 +40,14 @@ const LoginFormStyled = styled.div`
         color: ${(props) => props.theme.colors.grey};
       }
     }
+
+    .form-button {
+      background-color: ${(props) => props.theme.colors.app};
+      color: ${(props) => props.theme.colors.white};
+      font-size: 20px;
+      font-weight: 700;
+      margin-top: 10px;
+    }
   }
 `;
 
