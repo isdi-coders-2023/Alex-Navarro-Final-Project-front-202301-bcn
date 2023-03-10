@@ -5,11 +5,8 @@ import { ThemeProvider } from "styled-components";
 import theme from "../../styles/theme";
 import userEvent from "@testing-library/user-event";
 import { UserCredentials } from "../../hooks/useUser/types";
-import { setupStore } from "../../store/store";
 
 const mockLoginUser = jest.fn();
-
-setupStore();
 
 jest.mock("../../hooks/useUser/useUser", () => () => ({
   loginUser: mockLoginUser,
@@ -17,6 +14,18 @@ jest.mock("../../hooks/useUser/useUser", () => () => ({
 
 describe("Given a LoginForm component", () => {
   describe("When it is rendered", () => {
+    test("Then it should show an image with the logo", () => {
+      renderWithProviders(
+        <ThemeProvider theme={theme}>
+          <LoginForm />
+        </ThemeProvider>
+      );
+
+      const expectedImage = screen.getByRole("img", { name: "App logo" });
+
+      expect(expectedImage).toBeInTheDocument();
+    });
+
     test("Then it should show a label with the text 'Email'", () => {
       const label = "Email";
 
