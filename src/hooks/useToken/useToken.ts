@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { useAppDispatch } from "../../store/hooks";
-import { CustomTokenPayload } from "../useUser/types";
 import decodeToken from "jwt-decode";
 import { loginUserActionCreator } from "../../store/features/users/userSlice";
+import { CustomTokenPayload } from "../../types/types";
 
 interface UseTokenStructure {
   getToken: () => void;
@@ -18,7 +18,7 @@ const useToken = (): UseTokenStructure => {
     if (token) {
       const { id, email } = decodeToken<CustomTokenPayload>(token);
 
-      dispatch(loginUserActionCreator({ id, email, token }));
+      dispatch(loginUserActionCreator({ email, id, token }));
     }
   }, [dispatch]);
 

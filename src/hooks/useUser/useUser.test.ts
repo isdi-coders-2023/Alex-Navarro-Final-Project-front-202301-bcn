@@ -1,13 +1,14 @@
 import { act, renderHook } from "@testing-library/react";
 import Wrapper from "../../utils/Wrapper";
 import { store } from "../../store/store";
-import { CustomTokenPayload, UserCredentials } from "./types";
+import { UserCredentials } from "./types";
 import useUser from "./useUser";
 import decodeToken from "jwt-decode";
 import { User } from "../../store/features/users/types";
 import { loginUserActionCreator } from "../../store/features/users/userSlice";
 import { errorHandlers } from "../../mocks/handlers";
 import { server } from "../../mocks/server";
+import { CustomTokenPayload } from "../../types/types";
 
 jest.mock("jwt-decode", () => jest.fn());
 
