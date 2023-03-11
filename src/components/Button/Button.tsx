@@ -4,7 +4,8 @@ interface ButtonProps {
   className: string;
   text: string | number;
   action?: () => void;
-  isDisabled: boolean;
+  isDisabled?: boolean;
+  type?: string;
 }
 
 const Button = ({

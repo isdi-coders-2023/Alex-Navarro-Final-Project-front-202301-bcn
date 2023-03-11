@@ -17,22 +17,12 @@ const LoginForm = (): JSX.Element => {
     });
   };
 
+  const fillFields = email === "" || password === "";
+
   return (
     <>
       <LoginFormStyled>
-        <img
-          className="form__image"
-          src="../img/spotter.svg"
-          alt="App logo"
-          width={267}
-          height={64}
-        />
-        <form
-          autoComplete="off"
-          className="form"
-          aria-label="Login user"
-          onSubmit={handleSubmit}
-        >
+        <form autoComplete="off" className="form" onSubmit={handleSubmit}>
           <label htmlFor="email" className="form__label">
             Email
             <input
@@ -55,7 +45,12 @@ const LoginForm = (): JSX.Element => {
               onChange={(event) => setPassword(event.target.value)}
             />
           </label>
-          <Button className="form-button" isDisabled={false} text={"Log in"} />
+          <Button
+            className="form-button"
+            isDisabled={fillFields}
+            text={"Log in"}
+            type="submit"
+          />
         </form>
       </LoginFormStyled>
     </>
