@@ -1,9 +1,9 @@
-import LoginForm from "../LoginForm/LoginForm";
+import LoginPage from "../../Pages/LoginPage";
 
 const App = () => {
   return (
     <div className="App">
-      <LoginForm />
+      <LoginPage />
     </div>
   );
 };

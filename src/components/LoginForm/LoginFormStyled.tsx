@@ -8,7 +8,6 @@ const LoginFormStyled = styled.div`
   gap: 50px;
 
   width: 100%;
-  height: 100vh;
   padding: 20px;
 
   .form {

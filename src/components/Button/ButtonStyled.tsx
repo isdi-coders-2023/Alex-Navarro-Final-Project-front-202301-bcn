@@ -6,6 +6,12 @@ const ButtonStyled = styled.button`
   padding: 0.8rem;
   width: 100%;
   color: black;
+
+  :disabled {
+    :disabled {
+      opacity: 70%;
+    }
+  }
 `;
 
 export default ButtonStyled;
