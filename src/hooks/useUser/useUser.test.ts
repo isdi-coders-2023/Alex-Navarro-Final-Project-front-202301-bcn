@@ -9,6 +9,7 @@ import { loginUserActionCreator } from "../../store/features/users/userSlice";
 import { errorHandlers } from "../../mocks/handlers";
 import { server } from "../../mocks/server";
 import { CustomTokenPayload } from "../../types/types";
+import { displayModalActionCreator } from "../../store/features/ui/uiSlice";
 
 jest.mock("jwt-decode", () => jest.fn());
 
@@ -29,13 +30,6 @@ const mockTokenPayload: CustomTokenPayload = {
 };
 
 const mockToken = "sda123-asd1!23.da?34";
-
-const mockErrorToast = jest.fn();
-
-jest.mock("../../modals/modals", () => ({
-  ...jest.requireActual("../../modals/modals"),
-  displayToast: () => mockErrorToast("Wrong credentials"),
-}));
 
 describe("Given a useUser custom hook", () => {
   describe("When the loginUser function is invoked to login the user with the email 'alex@gmail.com' and the password 'alex1234'", () => {
@@ -83,7 +77,12 @@ describe("Given a useUser custom hook", () => {
       };
 
       await act(async () => loginUser(userCredentials));
-      expect(mockErrorToast).toHaveBeenCalledWith("Wrong credentials");
+      expect(spy).toHaveBeenCalledWith(
+        displayModalActionCreator({
+          modal: "Wrong credentials",
+          isError: true,
+        })
+      );
     });
   });
 });
