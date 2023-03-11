@@ -31,9 +31,9 @@ const mockToken = "sda123-asd1!23.da?34";
 
 const mockErrorToast = jest.fn();
 
-jest.mock("../../components/modals/modals", () => ({
-  ...jest.requireActual("../../components/modals/modals"),
-  errorToast: () => mockErrorToast("Wrong credentials"),
+jest.mock("../../modals/modals", () => ({
+  ...jest.requireActual("../../modals/modals"),
+  displayToast: () => mockErrorToast("Wrong credentials"),
 }));
 
 describe("Given a useUser custom hook", () => {
