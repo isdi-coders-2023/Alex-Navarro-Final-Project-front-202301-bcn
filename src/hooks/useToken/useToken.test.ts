@@ -47,7 +47,7 @@ describe("Given a useToken custom hook", () => {
       localStorage.clear();
     });
 
-    test("Then it should remove token from local storage", () => {
+    test("Then the token should be removed from the local storage", () => {
       const {
         result: {
           current: { removeToken },
@@ -59,6 +59,26 @@ describe("Given a useToken custom hook", () => {
       removeToken();
 
       expect(localStorage.getItem("token")).toBeNull();
+    });
+  });
+
+  describe("When getToken function is called, but no token is found", () => {
+    test("Then it loginUser action creator should not be called", () => {
+      const mockDispatch = jest.fn();
+
+      (useAppDispatch as jest.Mock).mockReturnValue(mockDispatch);
+
+      const {
+        result: {
+          current: { getToken },
+        },
+      } = renderHook(() => useToken(), {
+        wrapper: Wrapper,
+      });
+
+      getToken();
+
+      expect(mockDispatch).not.toHaveBeenCalled();
     });
   });
 });
