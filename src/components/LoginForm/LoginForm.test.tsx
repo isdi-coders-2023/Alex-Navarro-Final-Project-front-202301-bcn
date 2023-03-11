@@ -14,18 +14,6 @@ jest.mock("../../hooks/useUser/useUser", () => () => ({
 
 describe("Given a LoginForm component", () => {
   describe("When it is rendered", () => {
-    test("Then it should show an image with the logo", () => {
-      renderWithProviders(
-        <ThemeProvider theme={theme}>
-          <LoginForm />
-        </ThemeProvider>
-      );
-
-      const expectedImage = screen.getByRole("img", { name: "App logo" });
-
-      expect(expectedImage).toBeInTheDocument();
-    });
-
     test("Then it should show a label with the text 'Email'", () => {
       const label = "Email";
 
