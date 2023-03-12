@@ -4,12 +4,23 @@ import Button from "../Button/Button";
 import LoginFormStyled from "./LoginFormStyled";
 
 const LoginForm = (): JSX.Element => {
+  const { loginUser } = useUser();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { loginUser } = useUser();
+  const handleEmail = ({
+    target: { value },
+  }: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(value);
+  };
+  const handlePassword = ({
+    target: { value },
+  }: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(value);
+  };
 
-  const handleSubmit = async (event: { preventDefault: () => void }) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     await loginUser({
       email,
@@ -17,7 +28,7 @@ const LoginForm = (): JSX.Element => {
     });
   };
 
-  const fillFields = email === "" || password === "";
+  const areFieldsFilled = email === "" || password === "";
 
   return (
     <>
@@ -30,7 +41,7 @@ const LoginForm = (): JSX.Element => {
               type="email"
               placeholder="Introduce your email"
               className="form__input"
-              onChange={(event) => setEmail(event.target.value)}
+              onChange={handleEmail}
             />
           </label>
           <label htmlFor="password" className="form__label">
@@ -42,12 +53,12 @@ const LoginForm = (): JSX.Element => {
               required
               minLength={8}
               className="form__input"
-              onChange={(event) => setPassword(event.target.value)}
+              onChange={handlePassword}
             />
           </label>
           <Button
             className="form-button"
-            isDisabled={fillFields}
+            isDisabled={areFieldsFilled}
             text={"Log in"}
             type="submit"
           />
