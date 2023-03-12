@@ -23,17 +23,19 @@ const LoginPage = (): JSX.Element => {
   return isLogged ? (
     <Navigate to={"/"} replace={true} />
   ) : (
-    <LoginPageStyled>
-      <img
-        className="spotter"
-        src="../img/spotter.svg"
-        alt="App logo"
-        width={307}
-        height={74}
-      />
-      <LoginForm />
-      <ToastContainer />
-    </LoginPageStyled>
+    <>
+      <LoginPageStyled>
+        <img
+          className="spotter"
+          src="../img/spotter.svg"
+          alt="App logo"
+          width={307}
+          height={74}
+        />
+        <LoginForm />
+        <ToastContainer />
+      </LoginPageStyled>
+    </>
   );
 };
 
