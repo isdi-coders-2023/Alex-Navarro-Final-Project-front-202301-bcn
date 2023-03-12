@@ -27,6 +27,11 @@ const uiSlice = createSlice({
       ...currentState,
       isLoading: false,
     }),
+    resetModal: (currentState): UiState => ({
+      ...currentState,
+      modal: "",
+      isError: false,
+    }),
   },
 });
 
@@ -36,4 +41,5 @@ export const {
   displayModal: displayModalActionCreator,
   setIsLoading: setIsLoadingActionCreator,
   unSetIsLoading: unSetIsLoadingActionCreator,
+  resetModal: resetModalActionCreator,
 } = uiSlice.actions;
