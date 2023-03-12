@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ModalPayload, UiState } from "./types";
 
-export const initialState: ModalPayload = {
+export const initialState: UiState = {
   modal: "",
   isError: false,
+  isLoading: false,
 };
 
 const uiSlice = createSlice({
@@ -13,7 +14,7 @@ const uiSlice = createSlice({
     displayModal: (
       currentState,
       action: PayloadAction<ModalPayload>
-    ): ModalPayload => ({
+    ): UiState => ({
       ...currentState,
       modal: action.payload.modal,
       isError: action.payload.isError,
