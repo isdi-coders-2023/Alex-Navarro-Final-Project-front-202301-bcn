@@ -5,6 +5,7 @@ import {
   uiReducer,
   setIsLoadingActionCreator,
   unSetIsLoadingActionCreator,
+  resetModalActionCreator,
 } from "./uiSlice";
 
 describe("Given a uiReducer", () => {
@@ -62,6 +63,20 @@ describe("Given a uiReducer", () => {
       );
 
       expect(newUiState).toStrictEqual(expectedUiState);
+    });
+  });
+
+  describe("When its resetModal action creator is invoked", () => {
+    test("Then it should set isError property to false and set the modal property to ''", () => {
+      const expectedUiState: UiState = {
+        isError: false,
+        isLoading: false,
+        modal: "",
+      };
+
+      const newModalState = uiReducer(initialState, resetModalActionCreator());
+
+      expect(newModalState).toStrictEqual(expectedUiState);
     });
   });
 });
