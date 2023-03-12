@@ -1,8 +1,28 @@
+import { useEffect } from "react";
+import { Navigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import LoginForm from "../components/LoginForm/LoginForm";
+import useToken from "../hooks/useToken/useToken";
+import { displayToast } from "../modals/modals";
+import { useAppSelector } from "../store/hooks";
 import LoginPageStyled from "./LoginPageStyled";
 
 const LoginPage = (): JSX.Element => {
-  return (
+  const { isLogged } = useAppSelector((state) => state.user);
+  const { modal } = useAppSelector((state) => state.ui);
+  const { getToken } = useToken();
+
+  getToken();
+
+  useEffect(() => {
+    if (modal) {
+      displayToast(modal);
+    }
+  }, [modal]);
+
+  return isLogged ? (
+    <Navigate to={"/"} replace={true} />
+  ) : (
     <LoginPageStyled>
       <img
         className="spotter"
@@ -12,6 +32,7 @@ const LoginPage = (): JSX.Element => {
         height={74}
       />
       <LoginForm />
+      <ToastContainer />
     </LoginPageStyled>
   );
 };
