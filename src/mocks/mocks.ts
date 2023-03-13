@@ -3,9 +3,9 @@ import {
   ExerciseStructure,
 } from "../store/features/exercises/types";
 
-const mockBenchPress: ExerciseStructure = {
+export const mockBenchPress: ExerciseStructure = {
   name: "Bench Press",
-  type: "strength",
+  type: "Upper body",
   equipment: "Barbell, Bench",
   difficulty: 3,
   muscles: {
@@ -18,12 +18,12 @@ const mockBenchPress: ExerciseStructure = {
   reps: 10,
   rest: 60,
   duration: 0,
-  image: "https://example.com/bench-press.jpg",
+  image: "https://cdn.mos.cms.futurecdn.net/pLaRi5jXSHDKu6WRydetBo-1200-80.jpg",
 };
 
 const mockSquat: ExerciseStructure = {
   name: "Squat",
-  type: "strength",
+  type: "Lower body",
   equipment: "Barbell, Power Rack",
   difficulty: 4,
   muscles: {

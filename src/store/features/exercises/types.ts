@@ -1,7 +1,7 @@
 export interface ExerciseStructure {
   name: string;
   image: string;
-  type: "cardio" | "strength" | "hypertrophy";
+  type: "Upper body" | "Lower body";
   equipment: string;
   difficulty: number;
   muscles: {
