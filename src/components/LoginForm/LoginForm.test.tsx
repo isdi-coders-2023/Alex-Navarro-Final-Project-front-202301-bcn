@@ -17,11 +17,7 @@ describe("Given a LoginForm component", () => {
     test("Then it should show a label with the text 'Email'", () => {
       const label = "Email";
 
-      renderWithProviders(
-        <ThemeProvider theme={theme}>
-          <LoginForm />
-        </ThemeProvider>
-      );
+      renderWithProviders(<LoginForm />);
 
       const expectedLabel = screen.getByLabelText(label);
 
@@ -31,11 +27,7 @@ describe("Given a LoginForm component", () => {
     test("Then it should show a label with the text 'Password'", () => {
       const label = "Password";
 
-      renderWithProviders(
-        <ThemeProvider theme={theme}>
-          <LoginForm />
-        </ThemeProvider>
-      );
+      renderWithProviders(<LoginForm />);
 
       const expectedLabel = screen.getByLabelText(label);
 
@@ -46,11 +38,7 @@ describe("Given a LoginForm component", () => {
   test("Then it should show a label with the text 'Email'", () => {
     const label = "Email";
 
-    renderWithProviders(
-      <ThemeProvider theme={theme}>
-        <LoginForm />
-      </ThemeProvider>
-    );
+    renderWithProviders(<LoginForm />);
 
     const expectedLabel = screen.getByLabelText(label);
 
@@ -62,11 +50,7 @@ describe("Given a LoginForm component", () => {
       const label = "Email";
       const introducedEmail = "alex@gmail.com";
 
-      renderWithProviders(
-        <ThemeProvider theme={theme}>
-          <LoginForm />
-        </ThemeProvider>
-      );
+      renderWithProviders(<LoginForm />);
 
       const emailInput = screen.getByLabelText(label);
 
@@ -81,11 +65,7 @@ describe("Given a LoginForm component", () => {
       const label = "Password";
       const introducedPassword = "admin12345";
 
-      renderWithProviders(
-        <ThemeProvider theme={theme}>
-          <LoginForm />
-        </ThemeProvider>
-      );
+      renderWithProviders(<LoginForm />);
 
       const passwordInput = screen.getByLabelText(label);
 
@@ -107,11 +87,7 @@ describe("Given a LoginForm component", () => {
         password: "admin12345",
       };
 
-      renderWithProviders(
-        <ThemeProvider theme={theme}>
-          <LoginForm />
-        </ThemeProvider>
-      );
+      renderWithProviders(<LoginForm />);
 
       const emailInputPlaceholder = screen.getByPlaceholderText(
         emailInputPlaceholderText

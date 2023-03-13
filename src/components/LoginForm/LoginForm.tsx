@@ -62,6 +62,11 @@ const LoginForm = (): JSX.Element => {
             text={"Log in"}
             type="submit"
           />
+          <div className="register">
+            <span className="register__text">
+              Not a member? <span className="register__link"> Sign up</span>
+            </span>
+          </div>
         </form>
       </LoginFormStyled>
     </>
