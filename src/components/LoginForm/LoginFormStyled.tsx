@@ -47,6 +47,19 @@ const LoginFormStyled = styled.div`
       font-weight: 700;
       margin-top: 10px;
     }
+
+    .register {
+      display: flex;
+      align-self: center;
+
+      &__text {
+        color: ${(props) => props.theme.colors.white};
+      }
+      &__link {
+        color: ${(props) => props.theme.colors.app};
+        font-weight: 700;
+      }
+    }
   }
 `;
 
