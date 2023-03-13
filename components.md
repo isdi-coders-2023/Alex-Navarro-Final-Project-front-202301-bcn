@@ -7,7 +7,7 @@
   - Name: string
   - Image url: string
   - Number of reps: number
-  - Number of sets: numbers.
+  - Number of sets: numbers
   - Type: string
   - Equipment: string
   - Difficulty: number
