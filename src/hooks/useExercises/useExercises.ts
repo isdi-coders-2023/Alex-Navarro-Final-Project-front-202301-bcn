@@ -13,7 +13,7 @@ const useExercises = () => {
     try {
       const response = await fetch(`${apiUrl}${exercisesEndpoint}`, {
         method: "GET",
-        headers: { "Content-Type": "application/json; charset=UTF-8" },
+        headers: { "Content-Type": "application/json;" },
       });
       const exercises = (await response.json()) as ExercisesStructure;
 
