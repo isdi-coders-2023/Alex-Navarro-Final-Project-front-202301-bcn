@@ -1,4 +1,4 @@
-export interface ExerciseDataStructure {
+export interface ExerciseStructure {
   name: string;
   image: string;
   type: "cardio" | "strength" | "hypertrophy";
@@ -15,4 +15,4 @@ export interface ExerciseDataStructure {
   duration: number;
 }
 
-export type ExercisesDataStructure = ExerciseDataStructure[];
+export type ExercisesStructure = ExerciseStructure[];

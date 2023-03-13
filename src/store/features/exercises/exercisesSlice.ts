@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ExercisesDataStructure } from "./types";
+import { ExercisesStructure } from "./types";
 
-const initialState: ExercisesDataStructure = [];
+const initialState: ExercisesStructure = [];
 
 const exercisesSlice = createSlice({
   name: "exercise",
@@ -9,7 +9,7 @@ const exercisesSlice = createSlice({
   reducers: {
     loadExercises: (
       currentExerciseState,
-      action: PayloadAction<ExercisesDataStructure>
+      action: PayloadAction<ExercisesStructure>
     ) => [...action.payload],
   },
 });
