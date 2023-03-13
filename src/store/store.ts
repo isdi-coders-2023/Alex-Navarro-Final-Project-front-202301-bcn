@@ -8,8 +8,13 @@ import {
   combineReducers,
 } from "@reduxjs/toolkit";
 import { uiReducer } from "./features/ui/uiSlice";
+import { exercisesReducer } from "./features/exercises/exercisesSlice";
 
-const rootReducer = combineReducers({ user: userReducer, ui: uiReducer });
+const rootReducer = combineReducers({
+  user: userReducer,
+  ui: uiReducer,
+  exercise: exercisesReducer,
+});
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
   return configureStore({
