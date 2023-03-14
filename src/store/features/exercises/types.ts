@@ -1,4 +1,5 @@
 export interface ExerciseStructure {
+  id: string;
   name: string;
   image: string;
   type: "Upper body" | "Lower body";
