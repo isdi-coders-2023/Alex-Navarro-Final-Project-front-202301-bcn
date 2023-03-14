@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import LoginForm from "../components/LoginForm/LoginForm";
-import { displayToast } from "../modals/modals";
-import { useAppSelector } from "../store/hooks";
+import LoginForm from "../../components/LoginForm/LoginForm";
+import { displayToast } from "../../modals/modals";
+import { useAppSelector } from "../../store/hooks";
 import LoginPageStyled from "./LoginPageStyled";
 
 const LoginPage = (): JSX.Element => {

@@ -1,7 +1,8 @@
 import { createBrowserRouter, RouteObject } from "react-router-dom";
 import App from "../components/App/App";
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
-import LoginPage from "../Pages/LoginPage";
+import HomePage from "../Pages/HomePage/HomePage";
+import LoginPage from "../Pages/LoginPage/LoginPage";
 import endpoints from "./types";
 
 const routes: RouteObject[] = [
@@ -9,7 +10,7 @@ const routes: RouteObject[] = [
     path: "/",
     element: <App />,
     children: [
-      { path: "/", element: <ProtectedRoute element={<App />} /> },
+      { path: "/", element: <ProtectedRoute element={<HomePage />} /> },
       { path: endpoints.login, element: <LoginPage /> },
     ],
   },
