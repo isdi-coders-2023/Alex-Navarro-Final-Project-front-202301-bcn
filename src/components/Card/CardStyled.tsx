@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ExerciseCardStyled = styled.div`
+const CardStyled = styled.div`
   display: flex;
   background: ${(props) => props.theme.colors.white};
 
@@ -58,4 +58,4 @@ const ExerciseCardStyled = styled.div`
   }
 `;
 
-export default ExerciseCardStyled;
+export default CardStyled;

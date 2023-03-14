@@ -1,15 +1,15 @@
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ExerciseStructure } from "../../store/features/exercises/types";
-import ExerciseCardStyled from "./ExerciseCardStyled";
+import CardStyled from "./CardStyled";
 
 interface ExerciseCardProps {
   exercise: ExerciseStructure;
 }
 
-const ExerciseCard = ({ exercise }: ExerciseCardProps): JSX.Element => {
+const Card = ({ exercise }: ExerciseCardProps): JSX.Element => {
   return (
-    <ExerciseCardStyled className="exercise">
+    <CardStyled className="exercise">
       <img
         className="exercise__image"
         src={exercise.image}
@@ -43,8 +43,8 @@ const ExerciseCard = ({ exercise }: ExerciseCardProps): JSX.Element => {
           </div>
         </div>
       </div>
-    </ExerciseCardStyled>
+    </CardStyled>
   );
 };
 
-export default ExerciseCard;
+export default Card;
