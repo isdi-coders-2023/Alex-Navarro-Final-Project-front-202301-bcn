@@ -15,4 +15,8 @@ export interface ExerciseStructure {
   duration: number;
 }
 
+export interface ExercisesData {
+  exercises: ExercisesStructure;
+}
+
 export type ExercisesStructure = ExerciseStructure[];

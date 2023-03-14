@@ -1,5 +1,5 @@
 import {
-  ExercisesStructure,
+  ExercisesData,
   ExerciseStructure,
 } from "../store/features/exercises/types";
 
@@ -21,7 +21,7 @@ export const mockBenchPress: ExerciseStructure = {
   image: "https://cdn.mos.cms.futurecdn.net/pLaRi5jXSHDKu6WRydetBo-1200-80.jpg",
 };
 
-const mockSquat: ExerciseStructure = {
+export const mockSquat: ExerciseStructure = {
   name: "Squat",
   type: "Lower body",
   equipment: "Barbell, Power Rack",
@@ -39,4 +39,6 @@ const mockSquat: ExerciseStructure = {
   image: "https://example.com/squat.jpg",
 };
 
-export const mockExercises: ExercisesStructure = [mockBenchPress, mockSquat];
+export const mockExercises: ExercisesData = {
+  exercises: [mockBenchPress, mockSquat],
+};
