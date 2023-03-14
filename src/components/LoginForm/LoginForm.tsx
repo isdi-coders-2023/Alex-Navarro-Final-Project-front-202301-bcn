@@ -4,10 +4,10 @@ import Button from "../Button/Button";
 import LoginFormStyled from "./LoginFormStyled";
 
 const LoginForm = (): JSX.Element => {
-  const { loginUser } = useUser();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { loginUser } = useUser();
 
   const handleEmail = ({
     target: { value },
