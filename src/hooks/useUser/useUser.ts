@@ -52,6 +52,7 @@ const useUser = (): UseUserStructure => {
           isError: true,
         })
       );
+      dispatch(unSetIsLoadingActionCreator());
     }
   };
   return { loginUser };
