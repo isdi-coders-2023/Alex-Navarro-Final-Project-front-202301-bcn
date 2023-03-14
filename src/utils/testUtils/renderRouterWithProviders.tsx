@@ -5,8 +5,8 @@ import { RootState } from "../../store/store";
 import renderWithProviders from "./renderWithProviders";
 
 export const renderRouterWithProviders = (
-  preloadedState?: PreloadedState<RootState>,
-  ui?: React.ReactElement
+  ui?: React.ReactElement,
+  preloadedState?: PreloadedState<RootState>
 ) => {
   const routerWithProvider = ui ? getRouter(ui) : router;
 

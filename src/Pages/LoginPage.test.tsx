@@ -2,6 +2,12 @@ import { renderWithProviders } from "../utils/testUtils/renderWithProviders";
 import LoginPage from "./LoginPage";
 import { screen } from "@testing-library/react";
 import { renderRouterWithProviders } from "../utils/testUtils/renderRouterWithProviders";
+import * as ReactRouterDom from "react-router-dom";
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  Navigate: jest.fn(),
+}));
 
 describe("Given a Login Page", () => {
   describe("When it is rendered", () => {
@@ -18,16 +24,28 @@ describe("Given a Login Page", () => {
 
   describe("When the user introduces wrong credentials at Login Page, and the modal property isError is set to true", () => {
     test("Then it should display this modal with the text 'Wrong credentials'", async () => {
-      await renderRouterWithProviders(
-        {
-          ui: { modal: "Wrong credentials", isError: true, isLoading: false },
-        },
-        <LoginPage />
-      );
+      await renderRouterWithProviders(<LoginPage />, {
+        ui: { modal: "Wrong credentials", isError: true, isLoading: false },
+      });
 
       const modal = await screen.findByText("Wrong credentials");
 
       expect(modal).toBeInTheDocument();
+    });
+  });
+
+  describe("When the user is already logged", () => {
+    test("Then 'Navigate' should be invoked", () => {
+      const preloadedState = {
+        user: {
+          id: "",
+          email: "",
+          token: "",
+          isLogged: true,
+        },
+      };
+      renderRouterWithProviders(<LoginPage />, preloadedState);
+      expect(ReactRouterDom.Navigate).toHaveBeenCalled();
     });
   });
 });
