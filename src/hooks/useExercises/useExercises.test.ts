@@ -29,7 +29,7 @@ describe("Given a useExercises custom hook", () => {
       await getExercises();
 
       expect(spyDispatch).toHaveBeenCalledWith(
-        loadExercisesActionCreator(mockExercises)
+        loadExercisesActionCreator(mockExercises.exercises)
       );
     });
   });

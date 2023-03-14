@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { loadExercisesActionCreator } from "../../store/features/exercises/exercisesSlice";
-import { ExercisesStructure } from "../../store/features/exercises/types";
+import { ExercisesData } from "../../store/features/exercises/types";
 import { useAppDispatch } from "../../store/hooks";
 
 const apiUrl = process.env.REACT_APP_URL_API;
@@ -15,11 +15,8 @@ const useExercises = () => {
         method: "GET",
         headers: { "Content-Type": "application/json;" },
       });
-      const exercises = (await response.json()) as ExercisesStructure;
 
-      if (!response.ok) {
-        return;
-      }
+      const { exercises } = (await response.json()) as ExercisesData;
 
       dispatch(loadExercisesActionCreator(exercises));
     } catch (error) {
