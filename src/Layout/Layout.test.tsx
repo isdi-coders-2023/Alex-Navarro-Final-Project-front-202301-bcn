@@ -1,17 +1,17 @@
-import LoginPage from "../Pages/LoginPage";
 import renderWithProviders from "../utils/testUtils/renderWithProviders";
 import { screen } from "@testing-library/react";
+import Layout from "./Layout";
 
 describe("Given a Layout component", () => {
-  describe("When it renders", () => {
-    test("Then it should a button with the text 'Log in'", () => {
-      const expectedText = "Log in";
+  describe("When it renders but the user is not logged", () => {
+    test("Then it should display a LoginForm component", () => {
+      renderWithProviders(<Layout />, {
+        ui: { isLoading: true, isError: false, modal: "" },
+      });
 
-      renderWithProviders(<LoginPage />);
+      const loader = screen.getByLabelText("progress-bar-loading");
 
-      const expectedButton = screen.getByRole("button", { name: expectedText });
-
-      expect(expectedButton).toBeInTheDocument();
+      expect(loader).toBeInTheDocument();
     });
   });
 });
