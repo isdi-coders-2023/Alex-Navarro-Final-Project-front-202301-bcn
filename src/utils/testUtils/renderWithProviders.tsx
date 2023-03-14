@@ -7,7 +7,7 @@ import { ThemeProvider } from "styled-components";
 import theme from "../../styles/theme";
 import GlobalStyles from "../../styles/GlobalStyles";
 
-export const renderWithProviders = (
+const renderWithProviders = (
   ui: React.ReactElement,
   preloadedState?: PreloadedState<RootState>
 ) => {

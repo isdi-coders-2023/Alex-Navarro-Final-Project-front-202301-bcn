@@ -1,7 +1,6 @@
-import { renderWithProviders } from "../utils/testUtils/renderWithProviders";
 import LoginPage from "./LoginPage";
 import { screen } from "@testing-library/react";
-import { renderRouterWithProviders } from "../utils/testUtils/renderRouterWithProviders";
+import { renderRouterWithProviders } from "../../utils/testUtils/renderRouterWithProviders";
 import * as ReactRouterDom from "react-router-dom";
 
 jest.mock("react-router-dom", () => ({
@@ -14,7 +13,7 @@ describe("Given a Login Page", () => {
     test("Then it should a button inside a Login Form, with the text 'Log in'", () => {
       const expectedText = "Log in";
 
-      renderWithProviders(<LoginPage />);
+      renderRouterWithProviders(<LoginPage />);
 
       const expectedButton = screen.getByRole("button", { name: expectedText });
 
